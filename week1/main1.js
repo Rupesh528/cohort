@@ -69,18 +69,6 @@ arr3.forEach((element) => {
 	console.log(element);
 });
 
-//how to declare constructor in class
-class Person {
-	constructor(name, age) {
-		this.name = name;
-		this.age = age;
-	}
-}
-
-const person1 = new Person("John", 30);
-console.log(person1.name); // Output: John
-console.log(person1.age); // Output: 30
-
 //getDate example code
 const date = new Date();
 console.log(date.getDate(), "this is day");
@@ -110,8 +98,35 @@ const obj = {
 };
 const json = JSON.stringify(obj); //convert object to string
 console.log(json);
+console.log(typeof json);
 
 //parse example code
 const json2 = '{"name": "John", "age": 30}';
 const obj2 = JSON.parse(json2); //convert string to object
 console.log(obj2);
+console.log(obj2["age"]);
+
+
+
+
+
+
+
+
+
+//how to declare constructor in class
+class Person {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	getDetails(){
+		return `my name is ${this.name} and age is ${this.age}`;
+	}
+}
+
+const person1 = new Person("John", 30);
+console.log(person1.name); // Output: John
+console.log(person1.age); // Output: 30
+person1.getDetails();
