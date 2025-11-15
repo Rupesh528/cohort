@@ -2,10 +2,14 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-app.use(express.json());
+// app.use(express.json());
 
-app.all('/', (req, res) => {
+app.get('/', (req, res) => {
     console.log(req.headers);
+    console.log(req.body);
+    console.log(req.params);
+
+
     res.send("OK");
 });
 
