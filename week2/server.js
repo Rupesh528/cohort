@@ -32,7 +32,6 @@ app.get('/',(req,res)=>{
 
 app.post('/',(req,res)=>{
     let data = req.body.ishealthy;
-data = data === true || data === "true";
 
     database[0].kidneys.push({healthy:data});
     res.json({
