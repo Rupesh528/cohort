@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getAnimalData()">get an animal</button>
+    <script>
+         
+            async function getAnimalData(){
+              const data = await fetch('https://jsonplaceholder.typicode.com/todos/10');
+              const finalData  = await data.json();
+              console.log(finalData);
+            }
+
+            //the above code is not neat because u need to do await twice, 
+            // + u already need to know what type of data it will return
+          
+            // to avoid this we use axios
+
+
+             // function to fetch data using axios
+        async function getAnimalData() {
+
+            // axios automatically:
+            // 1. waits for response
+            // 2. converts JSON to JS object
+            // 3. handles content-type automatically
+            const response = await axios.get('https://jsonplaceholder.typicode.com/todos/10');
+
+            // response.data contains final parsed JSON
+            console.log(response.data);
+        }
+
+    </script>
+</body>
+</html>
