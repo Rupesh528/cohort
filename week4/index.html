@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Sum</title>
+</head>
+<body>
+    <script>
+        function autoSum() {
+            const a = document.getElementById("n1").value;
+            const b = document.getElementById("n2").value;
+
+            const result = document.getElementById("finalsum");
+
+            // Convert empty string to 0
+            const sum = (parseInt(a) || 0) + (parseInt(b) || 0);
+
+            result.innerHTML = sum;
+        }
+    </script>
+
+    <input id="n1" type="text" placeholder="first" oninput="autoSum()">
+    <br><br>
+    <input id="n2" type="text" placeholder="second" oninput="autoSum()">
+    <br><br>
+
+    <div id="finalsum"></div>
+</body>
+</html>
