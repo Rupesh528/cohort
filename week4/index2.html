@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    <input type = "text" >title</input><br></br>
+    <input type = "text" >desc</input><br></br> 
+    <div id="container"></div>
+
+      <script>
+            function add2container(title , desc){
+                const ele = document.createElement("div");
+                const titleDiv = document.createElement("div")
+                const descDiv = document.createElement("div")
+
+                console.log(typeof titleDiv);
+                titleDiv.innerHTML = title;
+                descDiv.innerHTML = desc;
+
+                ele.appendChild(titleDiv);
+                ele.appendChild(descDiv);
+
+                document.getElementById("container").appendChild(ele)
+
+            }
+           
+            function adder(arr){
+                for(let i = 0;i < arr.length;i++){
+                    add2container(arr[i].title,arr[i].desc);
+                }
+            }
+
+               arr = [{
+                title:"go to gym",
+                desc : "from 5 to  7"
+            },
+            {
+                title:"go to gym",
+                desc : "from123123 to  7"
+            }]
+            adder(arr);
+
+          
+        </script>
+    </body>
+</html>
