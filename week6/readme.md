@@ -6,5 +6,11 @@
 
 
 ## function based lifecycle render
+### these are hooks
 
--useEffect : when the components mounts - i.e gets render
+- useEffect : when the components mounts - i.e when it  gets rendered for the first time
+- useState 
+- useCallback
+- useMEmo
+- useRef
+- useContext
