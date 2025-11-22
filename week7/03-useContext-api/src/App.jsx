@@ -7,13 +7,17 @@ function App() {
   const [count, setCount] = useState(0)
   return (
     <>
-      <CountContext.Provider value={count}>
+      <CountContext.Provider value={count}>    {/* use this on the LCA  */}
         <Count setCount={setCount}/>    {/* it takes one extra level to pass down the state variable */}
       </CountContext.Provider>
     </>                                           
   )
 }
                                                 {/* to fix this use Context api was introduced */}
+                                                {/* but the component still re-render even if not using them*/}
+                                                {/* To fix this Recoil,redux was introduced */}
+                                                
+                                                
 function Count({setCount}){
     return<div>
       <CountRendered/>
@@ -30,6 +34,7 @@ function CountRendered(){
 
 function Button({ setCount }) {
   const count = useContext(CountContext);  // get count from context
+  
 
   return (
     <div>
