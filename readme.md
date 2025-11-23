@@ -1,86 +1,51 @@
-# Authentication Concepts
+Commonly Used React Hooks (with simple explanation)
+1️⃣ useState
 
-### Some Concepts
+Allows a component to store and update values (state).
 
-- **Hashing**  
-  One-way process. Commonly used for passwords.
+const [count, setCount] = useState(0);
 
-- **Encryption**  
-  Two-way process; requires a key for encrypt + decrypt.
+2️⃣ useEffect
 
-- **JWT (JSON Web Token)**  
-  Digital signature.  
-  Client can read the payload, but only the server can verify using a secret.
+Runs code when the component mounts, updates, or unmounts.
+Useful for API calls, timers, subscriptions, etc.
 
-- **Local Storage**  
-  A browser storage where JWT can be stored.
+useEffect(() => {
+  console.log("Component mounted");
+}, []); // empty array → run once
 
-- **Cookies**  
-  Another system for authentication.
+3️⃣ useRef
 
----
+Creates a reference to DOM elements or stores mutable values.
 
-# Example Code (JWT Authentication)
+const inputRef = useRef();
 
-```js
-const express = require("express");
-const jwt = require("jsonwebtoken");
-const jwtPassword = "123456";
+4️⃣ useContext
 
-const app = express();
-app.use(express.json());
+Allows a component to access values from React Context.
 
-const ALL_USERS = [
-  {
-    username: "harkirat@gmail.com",
-    password: "123",
-    name: "harkirat singh",
-  },
-  {
-    username: "raman@gmail.com",
-    password: "123321",
-    name: "Raman singh",
-  },
-  {
-    username: "priya@gmail.com",
-    password: "123321",
-    name: "Priya kumari",
-  },
-];
+const theme = useContext(ThemeContext);
 
-// check if a user exists
-function userExists(username, password) {
-  return ALL_USERS.some(
-    (user) => user.username === username && user.password === password
-  );
-}
+5️⃣ useMemo
 
-app.post("/signin", function (req, res) {
-  const username = req.body.username;
-  const password = req.body.password;
+Memoizes (caches) expensive computations.
 
-  if (!userExists(username, password)) {
-    return res.status(403).json({
-      msg: "User doesnt exist in our in memory db",
-    });
-  }
+const result = useMemo(() => slowFunction(a, b), [a, b]);
 
-  const token = jwt.sign({ username: username }, jwtPassword);
-  return res.json({ token });
-});
+6️⃣ useCallback
 
-app.get("/users", function (req, res) {
-  const token = req.headers.authorization;
+Memoizes a function to prevent unnecessary re-renders.
 
-  try {
-    const decoded = jwt.verify(token, jwtPassword);
-    const username = decoded.username;
+const handleClick = useCallback(() => {
+  console.log("clicked");
+}, []);
 
-    const users = ALL_USERS.filter((u) => u.username !== username);
-    res.json({ users });
-  } catch (err) {
-    return res.status(403).json({ msg: "Invalid token" });
-  }
-});
+7️⃣ useReducer
 
-app.listen(3000);
+More powerful alternative to useState — used for complex state logic.
+
+const [state, dispatch] = useReducer(reducer, initialState);
+
+⚡ Summary in One Line
+
+React Hooks let you use state, lifecycle methods, and other React features inside functional components — without needing classes.

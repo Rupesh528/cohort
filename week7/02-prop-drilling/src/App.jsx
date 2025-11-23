@@ -3,9 +3,6 @@ import { useState } from 'react'
 
 function App() {
   const [count, setCount] = useState(0)
-
-  
-
   return (
     <>
       <Count count={count} setCount={setCount}/>    {/* it takes one extra level to pass down the state variable */}

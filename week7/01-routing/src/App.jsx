@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route ,useNavigate} from 'react-router-dom'
 //if u add default before export in component it means u using it as below
 // import  Dashboard  from './components/Dashboard'
 
-// above step is important
+// above step is important for lazy to work
 
 const Dashboard = React.lazy(() => import("./components/Dashboard"));
 const Landing = React.lazy(() => import("./components/Landing"));
