@@ -11,7 +11,7 @@ export function AddTodo({onAdd}){
             title: title.trim(),
             desc: desc.trim(),
         }
-        onAdd(ele);
+        onAdd(ele); 
       
     }
 

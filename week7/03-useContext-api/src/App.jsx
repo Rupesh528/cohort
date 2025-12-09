@@ -15,6 +15,7 @@ function App() {
 }
                                                 {/* to fix this use Context api was introduced */}
                                                 {/* but the component still re-render even if not using them*/}
+                                                {/* was made only to look clean */}
                                                 {/* To fix this Recoil,redux was introduced */}
                                                 
                                                 

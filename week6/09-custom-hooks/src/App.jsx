@@ -1,8 +1,8 @@
-import { useState } from 'react'
-
+import { useState,useEffect } from 'react'
+import axios from 'axios';
 
 function useTodos(){
-     const [todos, setTodos] = useState(0)
+     const [todos, setTodos] = useState([])
 
      useEffect(() => {
         axios.get(`https://jsonplaceholder.typicode.com/todos/`)
@@ -11,6 +11,7 @@ function useTodos(){
               setTodos((res.data));
           })
     },[])
+    return todos;
 }
 
 
@@ -20,7 +21,11 @@ function App() {
   const todos = useTodos();
   return (
     <>
-          {todos}  
+         {todos.map(todo => (
+        <div key={todo.id}>
+          {todo.title}
+        </div>
+      ))} 
     </>
   )
 }
