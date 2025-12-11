@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"wrangler.json": "jsonc"
+	},
+	"chat.agent.enabled": false
+}
